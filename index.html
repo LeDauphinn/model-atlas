@@ -79,9 +79,45 @@
           <p class="eyebrow">Detail first</p>
           <h2>The zoom ladder of modern ML</h2>
           <p>
-            Every advanced model is built by stacking very small ideas. Click a
-            rung to climb from a single weight to a large language model.
+            Every advanced model is built by stacking very small ideas. Think
+            of each rung as a zoomed-out view: weights make neurons, neurons
+            make layers, layers make networks, and transformer blocks scale
+            that pattern into GPTs.
           </p>
+        </div>
+
+        <div class="ladder-preface">
+          <article class="preface-card preface-main">
+            <p class="preface-label">How to read this section</p>
+            <h3>Each rung is a larger structure built from the rung before it.</h3>
+            <p>
+              Start with a single learned number called a weight. Combine
+              weights and you get a neuron. Combine neurons and you get a layer.
+              Stack layers and you get a network. Add attention-based blocks
+              and next-token training at large scale, and you get a GPT.
+            </p>
+            <div class="preface-chain" aria-label="Zoom ladder summary">
+              <span>Weight</span>
+              <span>Neuron</span>
+              <span>Layer</span>
+              <span>Network</span>
+              <span>Transformer</span>
+              <span>GPT</span>
+            </div>
+          </article>
+
+          <article class="preface-card">
+            <p class="preface-label">What to look for</p>
+            <ul class="preface-list">
+              <li>What is the basic unit at this rung?</li>
+              <li>What computation happens here?</li>
+              <li>What bigger structure does it build?</li>
+            </ul>
+            <p class="preface-note">
+              If one rung still feels fuzzy, stay there before moving upward.
+              The rest of the ladder depends on it.
+            </p>
+          </article>
         </div>
 
         <div class="zoom-layout">

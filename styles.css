@@ -382,6 +382,69 @@ main,
   gap: 1rem;
 }
 
+.ladder-preface {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.preface-card {
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 251, 243, 0.76);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+}
+
+.preface-label {
+  margin: 0 0 0.45rem;
+  color: var(--accent-cool);
+  font-family: var(--headline);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.preface-card h3 {
+  margin: 0 0 0.7rem;
+  font-family: var(--headline);
+  font-size: 1.5rem;
+  line-height: 1.08;
+}
+
+.preface-card p,
+.preface-list li {
+  color: var(--ink-soft);
+}
+
+.preface-chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.preface-chain span {
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(23, 139, 142, 0.11);
+  border: 1px solid rgba(23, 139, 142, 0.18);
+  font-family: var(--headline);
+  font-size: 0.92rem;
+}
+
+.preface-list {
+  margin: 0 0 0.8rem;
+  padding-left: 1rem;
+}
+
+.preface-note {
+  margin: 0;
+}
+
 .zoom-steps {
   display: grid;
   gap: 0.8rem;
@@ -935,6 +998,7 @@ textarea {
 
 @media (max-width: 1080px) {
   .hero,
+  .ladder-preface,
   .zoom-layout,
   .lab-layout,
   .attention-layout,
