@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Model Atlas | Learn Machine Learning</title>
+    <meta
+      name="description"
+      content="An interactive, animation-rich introduction to machine learning, deep learning, NLP, LLMs, and GPTs."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="constellation" aria-hidden="true"></canvas>
+    <div class="spotlight" aria-hidden="true"></div>
+    <div class="progress-bar" aria-hidden="true">
+      <span id="scroll-progress"></span>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#top">Model Atlas</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#zoom-ladder">Zoom Ladder</a>
+        <a href="#regression-lab">ML Lab</a>
+        <a href="#language-lab">Language</a>
+        <a href="#gpt-lab">GPT</a>
+        <a href="#code-studio">Code</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section reveal">
+        <div class="hero-copy">
+          <p class="eyebrow">From a single learned number to a full GPT</p>
+          <h1>Learn machine learning by watching models think.</h1>
+          <p class="lead">
+            This site starts with the smallest detail, then climbs outward into
+            machine learning, deep learning, NLP, LLMs, and GPTs. The goal is
+            not just definitions. You will change weights, see loss drop, watch
+            attention move, and step through applied code.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#zoom-ladder"
+              >Start with the smallest detail</a
+            >
+            <a class="button button-secondary" href="#regression-lab"
+              >Open the interactive labs</a
+            >
+          </div>
+          <div class="hero-notes">
+            <article>
+              <span>6 layers</span>
+              <strong>Weight -> GPT</strong>
+            </article>
+            <article>
+              <span>4 live labs</span>
+              <strong>Train, tokenize, attend, sample</strong>
+            </article>
+            <article>
+              <span>4 code tabs</span>
+              <strong>Regression, classification, clustering, text</strong>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit-card orbit-a">data</div>
+          <div class="orbit-card orbit-b">loss</div>
+          <div class="orbit-card orbit-c">gradient</div>
+          <div class="orbit-card orbit-d">attention</div>
+          <div class="orbit-card orbit-e">tokens</div>
+          <div class="orbit-ring ring-large"></div>
+          <div class="orbit-ring ring-small"></div>
+        </div>
+      </section>
+
+      <section id="zoom-ladder" class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Detail first</p>
+          <h2>The zoom ladder of modern ML</h2>
+          <p>
+            Every advanced model is built by stacking very small ideas. Click a
+            rung to climb from a single weight to a large language model.
+          </p>
+        </div>
+
+        <div class="zoom-layout">
+          <div class="zoom-steps" role="tablist" aria-label="ML concept ladder">
+            <button class="zoom-step is-active" data-step="0" role="tab">
+              01 Weight
+            </button>
+            <button class="zoom-step" data-step="1" role="tab">
+              02 Neuron
+            </button>
+            <button class="zoom-step" data-step="2" role="tab">
+              03 Layer
+            </button>
+            <button class="zoom-step" data-step="3" role="tab">
+              04 Network
+            </button>
+            <button class="zoom-step" data-step="4" role="tab">
+              05 Transformer
+            </button>
+            <button class="zoom-step" data-step="5" role="tab">
+              06 GPT
+            </button>
+          </div>
+
+          <article class="zoom-card">
+            <p class="eyebrow" id="zoom-type">Core unit</p>
+            <h3 id="zoom-title">Weight</h3>
+            <p id="zoom-summary">
+              A weight is a learned number. It tells the model how strongly an
+              input should matter.
+            </p>
+            <div class="zoom-grid">
+              <div>
+                <h4>What it is</h4>
+                <p id="zoom-what"></p>
+              </div>
+              <div>
+                <h4>Why it matters</h4>
+                <p id="zoom-why"></p>
+              </div>
+              <div>
+                <h4>Typical question</h4>
+                <p id="zoom-question"></p>
+              </div>
+              <div>
+                <h4>Bridge upward</h4>
+                <p id="zoom-bridge"></p>
+              </div>
+            </div>
+            <div class="formula" id="zoom-formula"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Big picture</p>
+          <h2>What belongs where?</h2>
+          <p>
+            These names are related, but they are not interchangeable. Keeping
+            the hierarchy straight makes the rest of ML much easier.
+          </p>
+        </div>
+
+        <div class="taxonomy-grid">
+          <article class="concept-card">
+            <h3>Machine Learning</h3>
+            <p>
+              The broad idea: learn patterns from data instead of hard-coding
+              every rule.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>Deep Learning</h3>
+            <p>
+              A subset of machine learning that uses many stacked layers of
+              learned weights.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>NLP</h3>
+            <p>
+              Natural language processing: applying ML to text, speech, and
+              human language tasks.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>LLM</h3>
+            <p>
+              A large language model: a deep learning model trained on a huge
+              amount of text to predict tokens.
+            </p>
+          </article>
+          <article class="concept-card">
+            <h3>GPT</h3>
+            <p>
+              A specific style of transformer-based LLM that generates text
+              autoregressively, one token at a time.
+            </p>
+          </article>
+        </div>
+
+        <div class="family-grid">
+          <article class="family-card">
+            <span>Supervised</span>
+            <strong>Input + label</strong>
+            <p>Learn from examples with known answers.</p>
+          </article>
+          <article class="family-card">
+            <span>Unsupervised</span>
+            <strong>Input only</strong>
+            <p>Discover structure such as clusters or compressed features.</p>
+          </article>
+          <article class="family-card">
+            <span>Self-supervised</span>
+            <strong>Create labels from data</strong>
+            <p>Hide part of the input and learn to predict it.</p>
+          </article>
+          <article class="family-card">
+            <span>Reinforcement</span>
+            <strong>Action + reward</strong>
+            <p>Learn by trial, feedback, and long-term consequences.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Mental model</p>
+          <h2>The six words you need everywhere</h2>
+          <p>
+            These ideas reappear in almost every ML project, from linear
+            regression to GPT training.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <article class="pillar-card">
+            <h3>Data</h3>
+            <p>The examples you learn from. Better data often beats fancier models.</p>
+          </article>
+          <article class="pillar-card">
+            <h3>Features</h3>
+            <p>The useful signals inside the data. Deep learning often learns features automatically.</p>
+          </article>
+          <article class="pillar-card">
+            <h3>Model</h3>
+            <p>A parameterized function that turns inputs into predictions.</p>
+          </article>
+          <article class="pillar-card">
+            <h3>Loss</h3>
+            <p>A number that says how wrong the model currently is.</p>
+          </article>
+          <article class="pillar-card">
+            <h3>Optimizer</h3>
+            <p>The procedure that updates parameters to reduce loss.</p>
+          </article>
+          <article class="pillar-card">
+            <h3>Generalization</h3>
+            <p>The model should work on new examples, not just memorize training data.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="regression-lab" class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive lab 1</p>
+          <h2>Watch gradient descent learn a line</h2>
+          <p>
+            This is the smallest useful machine learning problem. A model tries
+            to fit a line to data, measures error, and updates the weights.
+          </p>
+        </div>
+
+        <div class="lab-layout">
+          <article class="lab-panel canvas-panel">
+            <canvas
+              id="regression-canvas"
+              width="720"
+              height="420"
+              aria-label="Linear regression chart"
+            ></canvas>
+            <div class="metric-strip">
+              <div>
+                <span>Current loss</span>
+                <strong id="mse-value">0.000</strong>
+              </div>
+              <div>
+                <span>Slope m</span>
+                <strong id="slope-value">0.00</strong>
+              </div>
+              <div>
+                <span>Intercept b</span>
+                <strong id="intercept-value">0.00</strong>
+              </div>
+              <div>
+                <span>Target line</span>
+                <strong id="target-line">m=1.80, b=0.30</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="lab-panel control-panel">
+            <label>
+              Slope
+              <input id="slope-slider" type="range" min="-3" max="3" step="0.01" value="-0.8" />
+            </label>
+            <label>
+              Intercept
+              <input id="intercept-slider" type="range" min="-2" max="2" step="0.01" value="1.2" />
+            </label>
+            <label>
+              Learning rate
+              <input id="learning-rate-slider" type="range" min="0.005" max="0.1" step="0.001" value="0.03" />
+            </label>
+            <label>
+              Dataset noise
+              <input id="noise-slider" type="range" min="0.05" max="1.2" step="0.01" value="0.35" />
+            </label>
+
+            <div class="button-row">
+              <button class="button button-primary" id="step-train">Step once</button>
+              <button class="button button-secondary" id="auto-train">Train 60 steps</button>
+            </div>
+            <div class="button-row">
+              <button class="button button-ghost" id="reset-model">Reset model</button>
+              <button class="button button-ghost" id="new-dataset">New dataset</button>
+            </div>
+
+            <div class="explain-box">
+              <h3>What you are seeing</h3>
+              <p>
+                The blue line is the model. The gold line is the hidden target
+                pattern that created the data. Each training step computes the
+                loss, measures the gradient, and nudges the weights.
+              </p>
+              <div class="formula">
+                MSE = average of (prediction - truth)<sup>2</sup>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="network-lab" class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive lab 2</p>
+          <h2>See a tiny neural network build intermediate features</h2>
+          <p>
+            A neural network is just many learned weighted sums with
+            nonlinearities. Here, a tiny network turns two input signals into a
+            spam score.
+          </p>
+        </div>
+
+        <div class="lab-layout network-layout">
+          <article class="lab-panel control-panel">
+            <label>
+              "Free/discount" signal
+              <input id="feature-free" type="range" min="0" max="1" step="0.01" value="0.75" />
+            </label>
+            <label>
+              "!!!" urgency signal
+              <input id="feature-urgent" type="range" min="0" max="1" step="0.01" value="0.55" />
+            </label>
+            <div class="network-notes">
+              <p>
+                The hidden layer forms reusable patterns such as "promotion
+                tone" or "urgent style". The output layer mixes them into a
+                probability.
+              </p>
+            </div>
+          </article>
+
+          <article class="lab-panel network-panel">
+            <div class="network-columns">
+              <div class="network-column">
+                <h3>Inputs</h3>
+                <div class="value-badge">
+                  <span>Free/discount</span>
+                  <strong id="free-value">0.75</strong>
+                </div>
+                <div class="value-badge">
+                  <span>Urgency</span>
+                  <strong id="urgent-value">0.55</strong>
+                </div>
+              </div>
+
+              <div class="network-column">
+                <h3>Hidden layer</h3>
+                <div class="activation-card">
+                  <div>
+                    <span>Promotion detector</span>
+                    <strong id="hidden-0-value">0.00</strong>
+                  </div>
+                  <div class="activation-bar"><span id="hidden-0-bar"></span></div>
+                </div>
+                <div class="activation-card">
+                  <div>
+                    <span>Urgency detector</span>
+                    <strong id="hidden-1-value">0.00</strong>
+                  </div>
+                  <div class="activation-bar"><span id="hidden-1-bar"></span></div>
+                </div>
+                <div class="activation-card">
+                  <div>
+                    <span>Normal language detector</span>
+                    <strong id="hidden-2-value">0.00</strong>
+                  </div>
+                  <div class="activation-bar"><span id="hidden-2-bar"></span></div>
+                </div>
+              </div>
+
+              <div class="network-column">
+                <h3>Output</h3>
+                <div class="output-badge">
+                  <span>Spam probability</span>
+                  <strong id="network-output">0.00</strong>
+                </div>
+                <p id="network-verdict" class="network-verdict">
+                  Likely safe email
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Depth matters</p>
+          <h2>Why deep learning changed the field</h2>
+          <p>
+            Classic ML often relies on hand-designed features. Deep learning
+            learns both the features and the final predictor.
+          </p>
+        </div>
+
+        <div class="comparison-grid">
+          <article class="comparison-card">
+            <h3>Classic ML pipeline</h3>
+            <ul>
+              <li>Humans decide which features to extract.</li>
+              <li>Works well on structured tables and smaller datasets.</li>
+              <li>Models include linear regression, trees, SVMs, and k-means.</li>
+            </ul>
+          </article>
+          <article class="comparison-card">
+            <h3>Deep learning pipeline</h3>
+            <ul>
+              <li>Neural networks learn internal features automatically.</li>
+              <li>Thrives on images, audio, language, and very large datasets.</li>
+              <li>Models include CNNs, RNNs, transformers, diffusion models.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-card">
+            <span>Perceptrons</span>
+            <p>Early neural models showed the core idea: weighted sums plus nonlinear decisions.</p>
+          </article>
+          <article class="timeline-card">
+            <span>CNNs</span>
+            <p>Convolutions became dominant for computer vision by learning local visual patterns.</p>
+          </article>
+          <article class="timeline-card">
+            <span>RNNs / LSTMs</span>
+            <p>Sequence models handled time and language but struggled with long-range memory.</p>
+          </article>
+          <article class="timeline-card">
+            <span>Transformers</span>
+            <p>Attention let every token look at every other token, which scaled better for language.</p>
+          </article>
+          <article class="timeline-card">
+            <span>Foundation models</span>
+            <p>Huge self-supervised models became reusable bases for many downstream tasks.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="language-lab" class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive lab 3</p>
+          <h2>Language models do not read words. They read tokens.</h2>
+          <p>
+            NLP is the language branch of ML. Modern LLMs first break text into
+            tokens, map tokens to vectors, then reason over those vectors.
+          </p>
+        </div>
+
+        <div class="lab-layout">
+          <article class="lab-panel control-panel">
+            <label class="textarea-label">
+              Try your own sentence
+              <textarea id="token-input" rows="6">
+Transformers became powerful because they learn relationships between tokens across long context windows.</textarea
+              >
+            </label>
+            <p class="lab-footnote">
+              This is a teaching approximation of subword tokenization, not an
+              exact production tokenizer.
+            </p>
+          </article>
+
+          <article class="lab-panel token-panel">
+            <div class="token-stats">
+              <div>
+                <span>Approx tokens</span>
+                <strong id="token-count">0</strong>
+              </div>
+              <div>
+                <span>Characters</span>
+                <strong id="character-count">0</strong>
+              </div>
+              <div>
+                <span>Why this matters</span>
+                <strong>More tokens = more memory and compute</strong>
+              </div>
+            </div>
+            <div id="token-output" class="token-output" aria-live="polite"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Attention</p>
+          <h2>Transformers learn which tokens should influence each other</h2>
+          <p>
+            Attention is the main reason GPT-style models handle context so
+            well. Pick a focus token below and see where it looks.
+          </p>
+        </div>
+
+        <div class="attention-layout">
+          <article class="lab-panel attention-panel">
+            <div id="attention-sentence" class="attention-sentence" aria-label="Attention sentence"></div>
+            <p class="attention-caption" id="attention-caption">
+              Select a token to inspect its attention pattern.
+            </p>
+          </article>
+
+          <article class="lab-panel attention-bars-panel">
+            <div id="attention-bars" class="attention-bars"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="gpt-lab" class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive lab 4</p>
+          <h2>How GPT-style models work</h2>
+          <p>
+            A GPT is a transformer trained to predict the next token. During
+            inference, it keeps repeating that process: read context, score
+            possible next tokens, sample one, append it, continue.
+          </p>
+        </div>
+
+        <div class="gpt-grid">
+          <article class="lab-panel pipeline-panel">
+            <div class="pipeline-step">
+              <span>1</span>
+              <div>
+                <h3>Pretraining</h3>
+                <p>Read huge text corpora and learn next-token prediction.</p>
+              </div>
+            </div>
+            <div class="pipeline-step">
+              <span>2</span>
+              <div>
+                <h3>Representation learning</h3>
+                <p>Internal layers learn syntax, facts, style, and reusable abstractions.</p>
+              </div>
+            </div>
+            <div class="pipeline-step">
+              <span>3</span>
+              <div>
+                <h3>Instruction tuning</h3>
+                <p>Extra training teaches the model to follow tasks more directly.</p>
+              </div>
+            </div>
+            <div class="pipeline-step">
+              <span>4</span>
+              <div>
+                <h3>Sampling at inference</h3>
+                <p>Temperature and decoding choices shape how deterministic or creative the output feels.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="lab-panel sampler-panel">
+            <label>
+              Prompt
+              <textarea id="gpt-prompt" rows="4">machine learning models</textarea>
+            </label>
+            <label>
+              Temperature
+              <input id="temperature-slider" type="range" min="0.2" max="1.8" step="0.05" value="0.85" />
+            </label>
+            <div class="button-row">
+              <button class="button button-primary" id="generate-token">Generate 1 token</button>
+              <button class="button button-secondary" id="generate-sequence">Generate 6 tokens</button>
+              <button class="button button-ghost" id="reset-generation">Reset</button>
+            </div>
+            <div class="generated-text" id="generated-text"></div>
+            <div class="probability-box">
+              <h3>Next-token probabilities</h3>
+              <div id="probability-bars"></div>
+            </div>
+            <p class="lab-footnote">
+              This is a tiny hand-authored toy sampler so you can see the
+              mechanics. Real GPTs use learned neural probabilities over very
+              large vocabularies.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="code-studio" class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Applied coding</p>
+          <h2>Four practical ML examples in Python</h2>
+          <p>
+            These are real patterns you can reuse. Switch tabs to see common
+            workflows and what each one teaches.
+          </p>
+        </div>
+
+        <div class="code-shell">
+          <div class="code-tabs" role="tablist" aria-label="Applied machine learning examples">
+            <button class="code-tab is-active" data-code="regression" role="tab">Regression</button>
+            <button class="code-tab" data-code="classification" role="tab">Classification</button>
+            <button class="code-tab" data-code="clustering" role="tab">Clustering</button>
+            <button class="code-tab" data-code="text" role="tab">Text</button>
+          </div>
+          <div class="code-meta">
+            <h3 id="code-title">Linear Regression with scikit-learn</h3>
+            <p id="code-description"></p>
+            <ul id="code-points" class="code-points"></ul>
+          </div>
+          <pre class="code-block"><code id="code-block"></code></pre>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Check your understanding</p>
+          <h2>Mini concept check</h2>
+          <p>
+            Answering basic questions from memory is a good way to see whether
+            the core ideas are starting to stick.
+          </p>
+        </div>
+
+        <div class="quiz-grid" id="quiz-grid">
+          <article class="quiz-card" data-answer="loss">
+            <h3>Which quantity tells a model how wrong it is?</h3>
+            <div class="quiz-options">
+              <button data-choice="token">Token</button>
+              <button data-choice="loss">Loss</button>
+              <button data-choice="epoch">Epoch</button>
+            </div>
+            <p class="quiz-feedback"></p>
+          </article>
+          <article class="quiz-card" data-answer="self-supervised">
+            <h3>LLM pretraining is mostly which kind of learning?</h3>
+            <div class="quiz-options">
+              <button data-choice="self-supervised">Self-supervised</button>
+              <button data-choice="reinforcement">Reinforcement</button>
+              <button data-choice="unsupervised">Unsupervised</button>
+            </div>
+            <p class="quiz-feedback"></p>
+          </article>
+          <article class="quiz-card" data-answer="next-token">
+            <h3>What does a GPT directly optimize during pretraining?</h3>
+            <div class="quiz-options">
+              <button data-choice="next-token">Next-token prediction</button>
+              <button data-choice="image-label">Image labels</button>
+              <button data-choice="clustering">Clustering quality</button>
+            </div>
+            <p class="quiz-feedback"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Practice path</p>
+          <h2>If you want to keep going, learn in this order</h2>
+          <p>
+            The fastest route is not "read everything". It is a steady loop of
+            concept, code, experiment, repeat.
+          </p>
+        </div>
+
+        <div class="roadmap-grid">
+          <article class="roadmap-card">
+            <span>Step 1</span>
+            <h3>Supervised ML basics</h3>
+            <p>Master train/test splits, regression, classification, metrics, and overfitting.</p>
+          </article>
+          <article class="roadmap-card">
+            <span>Step 2</span>
+            <h3>Feature thinking</h3>
+            <p>Learn how data cleaning, scaling, and feature quality affect performance.</p>
+          </article>
+          <article class="roadmap-card">
+            <span>Step 3</span>
+            <h3>Neural networks</h3>
+            <p>Understand tensors, activations, backpropagation, and optimization.</p>
+          </article>
+          <article class="roadmap-card">
+            <span>Step 4</span>
+            <h3>Transformers and LLMs</h3>
+            <p>Study tokenization, embeddings, attention, context windows, and decoding.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Model Atlas is a browser-only learning site. Open the HTML file and experiment.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
